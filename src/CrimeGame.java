@@ -1,5 +1,6 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
+public class CrimeGame{
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -63,7 +64,14 @@ import java.util.Scanner;
             System.out.println("2- Theft");
             System.out.println("3- Exit");
 
-            int choice = sc.nextInt();
+            int choice;
+            try {
+                 choice = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number.");
+                sc.next(); // clears the bad input from buffer
+                continue;  // restart the loop
+            }
 
             switch (choice) {
 
@@ -85,6 +93,7 @@ import java.util.Scanner;
         }
 
         System.out.println("Game Over.");
+        sc.close();
     }
 
     // ===== Method  =====
@@ -97,11 +106,19 @@ import java.util.Scanner;
         while (investigating) {
 
             System.out.println("\n1- View Suspects");
-            System.out.println("2- clues");
+            System.out.println("2- View Clues");
             System.out.println("3- Choose the criminal");
             System.out.println("4- Back");
 
-            int option = sc.nextInt();
+            int option;
+
+            try {
+                option = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a number.");
+                sc.next(); // clears the bad input from buffer
+                continue;  // restart the loop
+            }
 
             switch (option) {
 
@@ -122,14 +139,17 @@ import java.util.Scanner;
                 case 3:
                     System.out.println("Who is the criminal?");
                     int accuse = sc.nextInt();
-
+                  if(accuse >= 1 && accuse <= crime.suspects.length){
                     if (crime.suspects[accuse - 1].isGuilty) {
                         System.out.println("Correct! You solved the case 🕵️‍♀️");
                     } else {
                         System.out.println("Wrong! The criminal escaped 🚨");
                     }
-
                     investigating = false;
+                  }else{
+                      System.out.println("Invalid number.");
+                  }
+
                     break;
 
                 case 4:
@@ -141,3 +161,4 @@ import java.util.Scanner;
             }
         }
     }
+}
