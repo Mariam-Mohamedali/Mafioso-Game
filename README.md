@@ -1,64 +1,132 @@
 # 🕵️‍♀️ Mafioso Game
-Crime Investigation Simulator
 
-A console-based Java game where the player takes the role of a detective solving two different criminal cases.
-
-## 📖 Project Description
-
-This project is a simple Object-Oriented Programming (OOP) based simulation game.  
-The player investigates two separate cases:
-
-1. Murder at the Mansion
-2. Diamond Theft at the Museum
-
-Each case includes multiple suspects with different motives and alibis.  
-The player must interrogate suspects, analyze clues, and make the correct accusation.
+A console-based detective game built with Java, where you investigate criminal cases, interrogate suspects, and try to catch the criminal before they escape!
 
 ---
 
-## 🎮 Features
+## 📖 About the Game
 
-- Two different crime cases
-- Multiple suspects per case
-- Interrogation system
-- Accusation system
-- Correct/Incorrect ending logic
-- Menu-driven console interaction
+In **Mafioso Game**, you play as a detective presented with real criminal cases. Your job is to study each suspect's motive and alibi, then make your accusation. Choose wisely — the criminal is watching! 🚨
 
 ---
 
-## 🧠 OOP Concepts Used
+## 🎮 How to Play
 
-- Classes and Objects
-- Constructors
-- Arrays of Objects
-- Methods
-- Encapsulation of data
-- Boolean logic for decision making
-- Nested loops and control structures
+1. Launch the game and choose a case from the main menu
+2. View the list of suspects
+3. Interrogate each suspect to learn their **motive** and **alibi**
+4. When you're ready, accuse who you think is the criminal
+5. Find out if you solved the case — or let the criminal escape!
+
+---
+
+## 🗂️ Cases Available
+
+| # | Case | Description |
+|---|------|-------------|
+| 1 | 🔪 Murder at the Mansion | A wealthy businessman was found dead in his mansion |
+| 2 | 💎 Diamond Theft | A rare diamond was stolen from the museum |
+
+---
+
+## 📁 Project Structure
+
+```
+Mafioso-Game/
+│
+├── Crime.java        # Contains the Suspect and Crime classes (data model)
+└── CrimeGame.java    # Contains the main game logic and investigateCrime() method
+```
+
+---
+
+## 🧱 Classes Overview
+
+### `Suspect`
+Represents a suspect in a case.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | String | Suspect's name |
+| `motive` | String | Why they might have done it |
+| `alibi` | String | Their alibi at the time |
+| `isGuilty` | boolean | Whether they are the criminal |
+
+**Method:** `interrogate()` — prints the suspect's name, motive, and alibi.
+
+---
+
+### `Crime`
+Represents a criminal case.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `title` | String | Name of the case |
+| `description` | String | Brief description of what happened |
+| `suspects` | Suspect[] | Array of suspects in this case |
+
+**Methods:**
+- `showDetails()` — prints the case title and description
+- `showSuspects()` — lists all suspects by number
+
+---
+
+### `CrimeGame`
+Contains the main game loop and investigation logic.
+
+**Methods:**
+- `main()` — sets up all cases and runs the main menu loop
+- `investigateCrime(Crime, Scanner)` — handles the investigation sub-menu for a given case
 
 ---
 
 ## ▶️ How to Run
 
-1. Open the project in any Java IDE (IntelliJ / Eclipse / VS Code).
-2. Run the `CrimeGame` class.
-3. Follow the on-screen menu instructions.
+**Requirements:** Java JDK 8 or higher
+
+```bash
+# 1. Compile the files
+javac Crime.java CrimeGame.java
+
+# 2. Run the game
+java CrimeGame
+```
 
 ---
 
-## 🕵️ Game Flow
+## 🖥️ Game Preview
 
-- Choose a case
-- View suspects
-- Interrogate suspects
-- Analyze motives and alibis
-- Accuse the criminal
-- Get the final result
+```
+=== Welcome to Mafioso Game 🕵️‍♀️ ===
+Choose a Case :
+1- Murder
+2- Theft
+3- Exit
+
+> 1
+
+=== Murder at the Mansion ===
+A wealthy businessman was found dead in his mansion.
+
+1- View Suspects
+2- View Clues
+3- Choose the criminal
+4- Back
+
+> 2
+Choose suspect number: 1
+Name: Sarah
+Motive: Wants to inherit the fortune
+Alibi: She was sleeping
+
+> 3
+Who is the criminal? 1
+Correct! You solved the case 🕵️‍♀️
+```
 
 ---
 
 ## 👩‍💻 Author
 
-Mariam Mohamed Ali  
-Computer Science Student
+Made with ☕ and Java ,
+by Mariam Mohamed.
